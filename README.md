@@ -24,5 +24,6 @@ you should not change in order for the application to work and TODO markings whe
 Also, think about how you can make code more optimized and readable.
  
 The application is created using Java 17.
+
  
 

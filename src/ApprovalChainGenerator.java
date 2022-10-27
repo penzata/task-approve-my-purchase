@@ -17,4 +17,5 @@ public class ApprovalChainGenerator {
                 .registerNext(president)
                 .registerNext(ExecutiveMeeting.getInstance());
     }
+
 }

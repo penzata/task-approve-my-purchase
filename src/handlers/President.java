@@ -8,12 +8,37 @@ import common.Type;
 public class President extends Approver{
     @Override
     public void approve(int id, double cost, Type type) {
-
-        next.approve(id, cost, type);
+        if (canApprove(id, cost, type)) {
+            System.out.println("President approved purchase with id " + id + " that costs " + cost + "\n");
+        } else {
+            System.out.println("Purchase with id " + id + " needs approval from higher position than President.");
+            next.approve(id, cost, type);
+        }
     }
 
     @Override
     protected boolean canApprove(int id, double cost, Type type) {
+        switch (type) {
+            case CONSUMABLES -> {
+                return cost < 1000;
+            }
+
+            case CLERICAL -> {
+                return cost < 2000;
+            }
+
+            case GADGETS -> {
+                return cost < 3000;
+            }
+
+            case GAMING -> {
+                return cost < 5000;
+            }
+
+            case PC -> {
+                return cost < 8000;
+            }
+        }
         return false;
     }
 }

@@ -1,5 +1,9 @@
 package common;
 
 public enum Type {
-    CONSUMABLES, CLERICAL, GADGETS, GAMING, PC
+    CONSUMABLES,
+    CLERICAL,
+    GADGETS,
+    GAMING,
+    PC
 }
