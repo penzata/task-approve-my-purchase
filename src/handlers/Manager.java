@@ -18,24 +18,19 @@ public class Manager extends Approver {
 
     @Override
     protected boolean canApprove(int id, double cost, Type type) {
-
         switch (type) {
             case CONSUMABLES -> {
                 return cost <= 300;
             }
-
             case CLERICAL -> {
                 return cost <= 500;
             }
-
             case GADGETS -> {
                 return cost <= 1000;
             }
-
             case GAMING -> {
                 return cost <= 2000;
             }
-
             case PC -> {
                 return cost <= 5000;
             }

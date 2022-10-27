@@ -10,6 +10,7 @@ public class ApprovalChainGenerator {
         Approver director = new Director();
         Approver vicePresident = new VicePresident();
         Approver president = new President();
+
         return manager
                 .registerNext(director)
                 .registerNext(vicePresident)
