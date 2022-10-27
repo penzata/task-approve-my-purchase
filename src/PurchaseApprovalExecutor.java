@@ -18,7 +18,7 @@ public class PurchaseApprovalExecutor {
         int numberOfPurchasesForMonth = (int) (Math.random() * 20) + 1;
 
         for (int i = 1; i <= numberOfPurchasesForMonth; i++) {
-            int randomCost = (int) (Math.random() * 10000);
+            double randomCost = Math.random() * (Math.random() * 9000);
             Type randomType = Type.values()[new Random().nextInt(Type.values().length)];
             manager.approve(i, randomCost, randomType);
         }

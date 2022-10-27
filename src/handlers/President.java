@@ -9,7 +9,7 @@ public class President extends Approver{
     @Override
     public void approve(int id, double cost, Type type) {
         if (canApprove(id, cost, type)) {
-            System.out.println("President approved purchase with id " + id + " that costs " + cost + "\n");
+            System.out.printf("President approved purchase (%s) with id %d that costs %.2f.\n\n", type, id, cost);
         } else {
             System.out.println("Purchase with id " + id + " needs approval from higher position than President.");
             next.approve(id, cost, type);

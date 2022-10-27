@@ -9,7 +9,7 @@ public class Manager extends Approver {
     @Override
     public void approve(int id, double cost, Type type) {
         if (canApprove(id, cost, type)) {
-            System.out.println("Manager approved purchase with id " + id + " that costs " + cost + "\n");
+            System.out.printf("Manager approved purchase (%s) with id %d that costs %.2f.\n\n", type, id, cost);
         } else {
             System.out.println("Purchase with id " + id + " needs approval from higher position than Manager.");
             next.approve(id, cost, type);

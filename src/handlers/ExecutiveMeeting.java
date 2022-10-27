@@ -18,7 +18,7 @@ public class ExecutiveMeeting extends Approver {
 
     @Override
     public void approve(int id, double cost, Type type) {
-        System.out.println("Purchase with id " + id + " that costs " + cost + " requires an approval of executive meeting.");
+        System.out.printf("Purchase (%s) with id %d that costs %.2f requires an approval of executive meeting.\n", type, id, cost);
         if (canApprove(id, cost, type)) {
             System.out.println("Purchase approved at the meeting.\n");
         } else {
@@ -29,7 +29,7 @@ public class ExecutiveMeeting extends Approver {
     @Override
     protected boolean canApprove(int id, double cost, Type type) {
         Type typeToConsider = Type.values()[new Random().nextInt(Type.values().length)];
-        double amountOfMoneyGotToSpent = Math.random() * cost * 2;
+        double amountOfMoneyGotToSpent = Math.random() * (cost * 2);
 
         return (typeToConsider == type && amountOfMoneyGotToSpent >= cost);
     }
