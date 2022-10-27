@@ -29,10 +29,8 @@ public class ExecutiveMeeting extends Approver {
     @Override
     protected boolean canApprove(int id, double cost, Type type) {
         Type typeToConsider = Type.values()[new Random().nextInt(Type.values().length)];
-        System.out.println("type to consider at meeting: " + typeToConsider);
-        double amountOfMoneyToSpent = (int) (Math.random() * cost * 2);
-        System.out.println("money at meeting: " + amountOfMoneyToSpent);
+        double amountOfMoneyGotToSpent = (int) (Math.random() * cost * 2);
 
-        return (typeToConsider == type && amountOfMoneyToSpent >= cost);
+        return (typeToConsider == type && amountOfMoneyGotToSpent >= cost);
     }
 }
