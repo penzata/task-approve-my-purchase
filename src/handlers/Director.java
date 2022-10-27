@@ -22,26 +22,27 @@ public class Director extends Approver {
 
         switch (type) {
             case CONSUMABLES -> {
-                return cost < 500;
+                return cost <= 500;
             }
 
             case CLERICAL -> {
-                return cost < 1000;
+                return cost <= 1000;
             }
 
             case GADGETS -> {
-                return cost < 1500;
+                return cost <= 1500;
             }
 
             case GAMING -> {
-                return cost < 3000;
+                return cost <= 3000;
             }
 
             case PC -> {
-                return cost < 6000;
+                return cost <= 6000;
             }
         }
         return false;
     }
+
 }
 

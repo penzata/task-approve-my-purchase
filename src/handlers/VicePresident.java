@@ -19,27 +19,29 @@ public class VicePresident extends Approver {
 
     @Override
     protected boolean canApprove(int id, double cost, Type type) {
+
         switch (type) {
             case CONSUMABLES -> {
-                return cost < 700;
+                return cost <= 700;
             }
 
             case CLERICAL -> {
-                return cost < 1500;
+                return cost <= 1500;
             }
 
             case GADGETS -> {
-                return cost < 2000;
+                return cost <= 2000;
             }
 
             case GAMING -> {
-                return cost < 4500;
+                return cost <= 4500;
             }
 
             case PC -> {
-                return cost < 6500;
+                return cost <= 6500;
             }
         }
         return false;
     }
+
 }

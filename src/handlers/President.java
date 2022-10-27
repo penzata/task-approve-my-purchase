@@ -18,27 +18,29 @@ public class President extends Approver{
 
     @Override
     protected boolean canApprove(int id, double cost, Type type) {
+
         switch (type) {
             case CONSUMABLES -> {
-                return cost < 1000;
+                return cost <= 1000;
             }
 
             case CLERICAL -> {
-                return cost < 2000;
+                return cost <= 2000;
             }
 
             case GADGETS -> {
-                return cost < 3000;
+                return cost <= 3000;
             }
 
             case GAMING -> {
-                return cost < 5000;
+                return cost <= 5000;
             }
 
             case PC -> {
-                return cost < 8000;
+                return cost <= 8000;
             }
         }
         return false;
     }
+
 }
