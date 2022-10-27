@@ -1,7 +1,6 @@
 package handlers;
 
 import common.Type;
-
 import java.util.Random;
 
 /**

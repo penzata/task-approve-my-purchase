@@ -1,8 +1,6 @@
 import common.Type;
 import handlers.Approver;
 import handlers.Manager;
-
-import java.text.DecimalFormat;
 import java.util.Random;
 
 /**
