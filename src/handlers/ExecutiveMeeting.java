@@ -20,16 +20,16 @@ public class ExecutiveMeeting extends Approver {
     public void approve(int id, double cost, Type type) {
         System.out.println("Purchase with id " + id + " that costs " + cost + " requires an approval of executive meeting.");
         if (canApprove(id, cost, type)) {
-            System.out.println("Purchase approved.\n");
+            System.out.println("Purchase approved at the meeting.\n");
         } else {
-            System.out.println("Purchase not approved. Try next month.\n");
+            System.out.println("Purchase not approved at the meeting. Try next month.\n");
         }
     }
 
     @Override
     protected boolean canApprove(int id, double cost, Type type) {
         Type typeToConsider = Type.values()[new Random().nextInt(Type.values().length)];
-        double amountOfMoneyGotToSpent = (int) (Math.random() * cost * 2);
+        double amountOfMoneyGotToSpent = Math.random() * cost * 2;
 
         return (typeToConsider == type && amountOfMoneyGotToSpent >= cost);
     }
