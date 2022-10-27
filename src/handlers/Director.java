@@ -35,8 +35,8 @@ public class Director extends Approver {
             case PC -> {
                 return cost <= 6000;
             }
+            default -> {return false;}
         }
-        return false;
     }
 
 }

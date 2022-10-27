@@ -34,8 +34,8 @@ public class Manager extends Approver {
             case PC -> {
                 return cost <= 5000;
             }
+            default -> {return false;}
         }
-        return false;
     }
 
 }

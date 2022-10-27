@@ -34,8 +34,8 @@ public class President extends Approver{
             case PC -> {
                 return cost <= 8000;
             }
+            default -> {return false;}
         }
-        return false;
     }
 
 }

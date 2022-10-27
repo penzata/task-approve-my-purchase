@@ -35,8 +35,8 @@ public class VicePresident extends Approver {
             case PC -> {
                 return cost <= 6500;
             }
+            default -> {return false;}
         }
-        return false;
     }
 
 }
