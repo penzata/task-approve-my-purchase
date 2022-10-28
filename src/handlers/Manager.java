@@ -17,7 +17,7 @@ public class Manager extends Approver {
     }
 
     @Override
-    protected int getPurchaseLimit(Type type) {
+    protected double getPurchaseLimit(Type type) {
         return switch (type) {
             case CONSUMABLES -> 300;
             case CLERICAL -> 500;

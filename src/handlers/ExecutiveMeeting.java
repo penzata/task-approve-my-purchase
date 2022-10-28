@@ -2,6 +2,8 @@ package handlers;
 
 import common.Type;
 
+import java.util.Random;
+
 
 /**
  * Used as a fallback in approval chain.
@@ -10,6 +12,7 @@ import common.Type;
  */
 public class ExecutiveMeeting extends Approver {
     private static final ExecutiveMeeting INSTANCE = new ExecutiveMeeting();
+    private static final Random rand = new Random();
 
     private ExecutiveMeeting() {
     }
@@ -29,12 +32,12 @@ public class ExecutiveMeeting extends Approver {
     }
 
     @Override
-    protected int getPurchaseLimit(Type type) {
-        int surplus = (int) (Math.random() * 1000);
-
+    protected double getPurchaseLimit(Type type) {
+        double surplus = rand.nextDouble() * 2000;
+        System.out.println("surplus " + surplus);
         return switch (type) {
-            case CONSUMABLES, CLERICAL, GADGETS -> 3000 + surplus;
-            case GAMING, PC -> 8000 + surplus;
+            case CONSUMABLES, CLERICAL, GADGETS -> 2000 + surplus;
+            case GAMING, PC -> 6500 + surplus;
         };
     }
 }

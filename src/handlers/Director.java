@@ -18,7 +18,7 @@ public class Director extends Approver {
     }
 
     @Override
-    protected int getPurchaseLimit(Type type) {
+    protected double getPurchaseLimit(Type type) {
         return switch (type) {
             case CONSUMABLES -> 500;
             case CLERICAL -> 1000;

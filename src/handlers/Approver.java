@@ -13,7 +13,7 @@ public abstract class Approver {
     protected boolean canApprove(double cost, Type type) {
         return cost <= this.getPurchaseLimit(type);
     }
-    protected abstract int getPurchaseLimit(Type type);
+    protected abstract double getPurchaseLimit(Type type);
     /**
      * Method used for registering next approver level.
      * DO NOT CHANGE IT.

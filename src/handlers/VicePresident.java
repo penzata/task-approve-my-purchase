@@ -18,7 +18,7 @@ public class VicePresident extends Approver {
     }
 
     @Override
-    protected int getPurchaseLimit(Type type) {
+    protected double getPurchaseLimit(Type type) {
         return switch (type) {
             case CONSUMABLES -> 700;
             case CLERICAL -> 1500;
