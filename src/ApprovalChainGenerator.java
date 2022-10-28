@@ -5,7 +5,8 @@ import handlers.*;
  * DO NOT MODIFY.
  */
 public class ApprovalChainGenerator {
-
+    private ApprovalChainGenerator() {
+    }
     public static Approver generate(Approver manager) {
         Approver director = new Director();
         Approver vicePresident = new VicePresident();

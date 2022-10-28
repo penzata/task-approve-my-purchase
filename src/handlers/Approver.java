@@ -17,7 +17,8 @@ public abstract class Approver {
      * DO NOT CHANGE IT.
      */
     public Approver registerNext(Approver next) {
-        return this.next = next;
+        this.next = next;
+        return next;
     }
 
 }

@@ -19,24 +19,13 @@ public class Director extends Approver {
 
     @Override
     protected boolean canApprove(double cost, Type type) {
-        switch (type) {
-            case CONSUMABLES -> {
-                return cost <= 500;
-            }
-            case CLERICAL -> {
-                return cost <= 1000;
-            }
-            case GADGETS -> {
-                return cost <= 1500;
-            }
-            case GAMING -> {
-                return cost <= 3000;
-            }
-            case PC -> {
-                return cost <= 6000;
-            }
-            default -> {return false;}
-        }
+        return switch (type) {
+            case CONSUMABLES -> cost <= 500;
+            case CLERICAL -> cost <= 1000;
+            case GADGETS -> cost <= 1500;
+            case GAMING -> cost <= 3000;
+            case PC -> cost <= 6000;
+        };
     }
 
 }
