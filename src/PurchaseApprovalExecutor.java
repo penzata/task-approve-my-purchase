@@ -1,7 +1,6 @@
 import common.Type;
 import handlers.Approver;
 import handlers.Manager;
-
 import java.util.Random;
 
 /**
@@ -9,17 +8,20 @@ import java.util.Random;
  * Be free to modify below line 14 (bellow comment line)
  */
 public class PurchaseApprovalExecutor {
+    private static final Random random = new Random();
+
     private PurchaseApprovalExecutor() {
     }
+
     public static void execute() {
         Approver manager = new Manager();
         ApprovalChainGenerator.generate(manager);
         //Be free to modify method below this line
-        int numberOfPurchasesForMonth = (int) (Math.random() * 20) + 1;
+        int numberOfPurchasesForMonth = random.nextInt(1, 24);
 
         for (int i = 1; i <= numberOfPurchasesForMonth; i++) {
-            double randomCost = Math.random() * (Math.random() * 9000);
-            Type randomType = Type.values()[new Random().nextInt(Type.values().length)];
+            double randomCost = Math.random() * 8100;
+            Type randomType = Type.values()[random.nextInt(Type.values().length)];
             manager.approve(i, randomCost, randomType);
         }
     }
