@@ -11,6 +11,9 @@ import java.util.Random;
 public class ExecutiveMeeting extends Approver {
     private static final ExecutiveMeeting INSTANCE = new ExecutiveMeeting();
 
+    private ExecutiveMeeting() {
+    }
+
     public static ExecutiveMeeting getInstance() {
         return INSTANCE;
     }
