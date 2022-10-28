@@ -1,7 +1,6 @@
 package handlers;
 
 import common.Type;
-
 import java.util.Random;
 
 
@@ -34,7 +33,7 @@ public class ExecutiveMeeting extends Approver {
     @Override
     protected double getPurchaseLimit(Type type) {
         double surplus = rand.nextDouble() * 2000;
-        System.out.println("surplus " + surplus);
+
         return switch (type) {
             case CONSUMABLES, CLERICAL, GADGETS -> 2000 + surplus;
             case GAMING, PC -> 6500 + surplus;
