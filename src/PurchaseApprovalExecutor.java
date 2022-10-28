@@ -8,7 +8,7 @@ import java.util.Random;
  * Be free to modify below line 14 (bellow comment line)
  */
 public class PurchaseApprovalExecutor {
-    private static final Random random = new Random();
+    private static final Random rand = new Random();
 
     private PurchaseApprovalExecutor() {
     }
@@ -17,11 +17,11 @@ public class PurchaseApprovalExecutor {
         Approver manager = new Manager();
         ApprovalChainGenerator.generate(manager);
         //Be free to modify method below this line
-        int numberOfPurchasesForMonth = random.nextInt(1, 24);
+        int numberOfPurchasesForMonth = rand.nextInt(1, 24);
 
         for (int i = 1; i <= numberOfPurchasesForMonth; i++) {
             double randomCost = Math.random() * 8100;
-            Type randomType = Type.values()[random.nextInt(Type.values().length)];
+            Type randomType = Type.values()[rand.nextInt(Type.values().length)];
             manager.approve(i, randomCost, randomType);
         }
     }
