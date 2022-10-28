@@ -33,11 +33,8 @@ public class ExecutiveMeeting extends Approver {
         int surplus = (int) (Math.random() * 1000);
 
         return switch (type) {
-            case CONSUMABLES -> 1000 + surplus;
-            case CLERICAL -> 2000 + surplus;
-            case GADGETS -> 3000 + surplus;
-            case GAMING -> 5000 + surplus;
-            case PC -> 8000 + surplus;
+            case CONSUMABLES, CLERICAL, GADGETS -> 3000 + surplus;
+            case GAMING, PC -> 8000 + surplus;
         };
     }
 }
