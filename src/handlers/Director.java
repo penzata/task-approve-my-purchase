@@ -10,7 +10,7 @@ public class Director extends Approver {
     @Override
     public void approve(int id, double cost, Type type) {
         if (canApprove(cost, type)) {
-            System.out.printf("Director approved purchase (%s) with id %d that costs %.2f.\n\n", type, id, cost);
+            System.out.printf("Director approved purchase (%s) with id %d that costs %.2f.%n%n", type, id, cost);
         } else {
             System.out.println("Purchase with id " + id + " needs approval from higher position than Director.");
             next.approve(id, cost, type);
@@ -18,15 +18,14 @@ public class Director extends Approver {
     }
 
     @Override
-    protected boolean canApprove(double cost, Type type) {
+    protected int getPurchaseLimit(Type type) {
         return switch (type) {
-            case CONSUMABLES -> cost <= 500;
-            case CLERICAL -> cost <= 1000;
-            case GADGETS -> cost <= 1500;
-            case GAMING -> cost <= 3000;
-            case PC -> cost <= 6000;
+            case CONSUMABLES -> 500;
+            case CLERICAL -> 1000;
+            case GADGETS -> 1500;
+            case GAMING ->  3000;
+            case PC -> 6000;
         };
     }
 
 }
-

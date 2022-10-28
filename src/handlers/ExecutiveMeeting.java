@@ -1,7 +1,7 @@
 package handlers;
 
 import common.Type;
-import java.util.Random;
+
 
 /**
  * Used as a fallback in approval chain.
@@ -20,7 +20,7 @@ public class ExecutiveMeeting extends Approver {
 
     @Override
     public void approve(int id, double cost, Type type) {
-        System.out.printf("Purchase (%s) with id %d that costs %.2f requires an approval of executive meeting.\n", type, id, cost);
+        System.out.printf("Purchase (%s) with id %d that costs %.2f requires an approval of executive meeting.%n", type, id, cost);
         if (canApprove(cost, type)) {
             System.out.println("Purchase approved at the meeting.\n");
         } else {
@@ -29,10 +29,15 @@ public class ExecutiveMeeting extends Approver {
     }
 
     @Override
-    protected boolean canApprove(double cost, Type type) {
-        Type typeToConsider = Type.values()[new Random().nextInt(Type.values().length)];
-        double amountOfMoneyGotToSpent = Math.random() * (cost * 2);
+    protected int getPurchaseLimit(Type type) {
+        int surplus = (int) (Math.random() * 1000);
 
-        return (typeToConsider == type && amountOfMoneyGotToSpent >= cost);
+        return switch (type) {
+            case CONSUMABLES -> 1000 + surplus;
+            case CLERICAL -> 2000 + surplus;
+            case GADGETS -> 3000 + surplus;
+            case GAMING -> 5000 + surplus;
+            case PC -> 8000 + surplus;
+        };
     }
 }
