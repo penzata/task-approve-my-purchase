@@ -10,14 +10,17 @@ import java.util.Random;
  * If abstract methods are changed, be free to edit signatures.
  */
 public class ExecutiveMeeting extends Approver {
-    private static final ExecutiveMeeting INSTANCE = new ExecutiveMeeting();
     private static final Random rand = new Random();
 
     private ExecutiveMeeting() {
     }
 
+    private static class MeetingHelper {
+        private static final ExecutiveMeeting INSTANCE = new ExecutiveMeeting();
+    }
+
     public static ExecutiveMeeting getInstance() {
-        return INSTANCE;
+        return MeetingHelper.INSTANCE;
     }
 
     @Override
