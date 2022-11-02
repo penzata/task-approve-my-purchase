@@ -1,3 +1,5 @@
+package main;
+
 /**
  * Application starter.
  * DO NOT MODIFY.

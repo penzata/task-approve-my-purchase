@@ -1,3 +1,5 @@
+package main;
+
 import common.Type;
 import handlers.Approver;
 import handlers.Manager;
