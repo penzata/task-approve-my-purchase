@@ -1,6 +1,7 @@
 package handlers;
 
-import common.Type;
+import common.MessageApproval;
+import common.Purchase;
 import java.util.Random;
 
 
@@ -10,23 +11,24 @@ import java.util.Random;
  * If abstract methods are changed, be free to edit signatures.
  */
 public class ExecutiveMeeting extends Approver {
+    private static final String NAME = "Executive Meeting";
     private static final Random rand = new Random();
 
     private ExecutiveMeeting() {
     }
 
-    private static class MeetingHelper {
+    private static class ExecutiveMeetingHelper {
         private static final ExecutiveMeeting INSTANCE = new ExecutiveMeeting();
     }
 
     public static ExecutiveMeeting getInstance() {
-        return MeetingHelper.INSTANCE;
+        return ExecutiveMeetingHelper.INSTANCE;
     }
 
     @Override
-    public void approve(int id, double cost, Type type) {
-        System.out.printf("Purchase (%s) with id %d that costs %.2f requires an approval of executive meeting.%n", type, id, cost);
-        if (canApprove(cost, type)) {
+    public void approve(Purchase purchase) {
+        MessageApproval.startMeeting(NAME, purchase);
+        if (canApprove(purchase)) {
             System.out.println("Purchase approved at the meeting.\n");
         } else {
             System.out.println("Purchase not approved at the meeting. Try next month.\n");
@@ -34,10 +36,10 @@ public class ExecutiveMeeting extends Approver {
     }
 
     @Override
-    protected double getPurchaseLimit(Type type) {
+    protected double getPurchaseLimit(Purchase purchase) {
         double surplus = rand.nextDouble() * 2000;
 
-        return switch (type) {
+        return switch (purchase.type()) {
             case CONSUMABLES, CLERICAL, GADGETS -> 2000 + surplus;
             case GAMING, PC -> 6500 + surplus;
         };

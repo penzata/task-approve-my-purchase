@@ -1,25 +1,26 @@
 package handlers;
 
-import common.Type;
-
+import common.MessageApproval;
+import common.Purchase;
 
 /**
  * //TODO - Implement approval implementation for VicePresident level
  */
 public class VicePresident extends Approver {
+    private static final String NAME = "Vice President";
     @Override
-    public void approve(int id, double cost, Type type) {
-        if (canApprove(cost, type)) {
-            System.out.printf("Vice President approved purchase (%s) with id %d that costs %.2f.%n%n", type, id, cost);
+    public void approve(Purchase purchase) {
+        if (canApprove(purchase)) {
+            MessageApproval.approved(NAME, purchase);
         } else {
-            System.out.println("Purchase with id " + id + " needs approval from higher position than Vice President.");
-            next.approve(id, cost, type);
+            MessageApproval.notApproved(NAME, purchase);
+            next.approve(purchase);
         }
     }
 
     @Override
-    protected double getPurchaseLimit(Type type) {
-        return switch (type) {
+    protected double getPurchaseLimit(Purchase purchase) {
+        return switch (purchase.type()) {
             case CONSUMABLES -> 700;
             case CLERICAL -> 1500;
             case GADGETS -> 2000;

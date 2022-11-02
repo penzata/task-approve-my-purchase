@@ -1,6 +1,6 @@
 package handlers;
 
-import common.Type;
+import common.Purchase;
 
 public abstract class Approver {
 
@@ -9,11 +9,11 @@ public abstract class Approver {
     /**
      * If needed, be free to change signature of abstract methods.
      */
-    public abstract void approve(int id, double cost, Type type);
-    protected boolean canApprove(double cost, Type type) {
-        return cost <= this.getPurchaseLimit(type);
+    public abstract void approve(Purchase purchase);
+    protected boolean canApprove(Purchase purchase) {
+        return purchase.cost() <= this.getPurchaseLimit(purchase);
     }
-    protected abstract double getPurchaseLimit(Type type);
+    protected abstract double getPurchaseLimit(Purchase purchase);
     /**
      * Method used for registering next approver level.
      * DO NOT CHANGE IT.

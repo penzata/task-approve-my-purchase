@@ -1,5 +1,6 @@
 package main;
 
+import common.Purchase;
 import common.Type;
 import handlers.Approver;
 import handlers.Manager;
@@ -24,7 +25,8 @@ public class PurchaseApprovalExecutor {
         for (int i = 1; i <= numberOfPurchasesForMonth; i++) {
             double randomCost = Math.random() * 8100;
             Type randomType = Type.values()[rand.nextInt(Type.values().length)];
-            manager.approve(i, randomCost, randomType);
+            Purchase newPurchase = new Purchase(i, randomCost, randomType);
+            manager.approve(newPurchase);
         }
     }
 }
