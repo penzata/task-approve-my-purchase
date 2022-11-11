@@ -1,9 +1,10 @@
-package main;
+package com.example.main;
 
-import common.Purchase;
-import common.Type;
-import handlers.Approver;
-import handlers.Manager;
+import com.example.common.Purchase;
+import com.example.common.Type;
+import com.example.handlers.Approver;
+import com.example.handlers.Manager;
+
 import java.util.Random;
 
 /**

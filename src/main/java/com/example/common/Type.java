@@ -1,4 +1,4 @@
-package common;
+package com.example.common;
 
 public enum Type {
     CONSUMABLES,

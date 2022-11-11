@@ -1,6 +1,6 @@
-package handlers;
+package com.example.handlers;
 
-import common.Purchase;
+import com.example.common.Purchase;
 
 public abstract class Approver {
 

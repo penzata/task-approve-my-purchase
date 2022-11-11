@@ -1,6 +1,6 @@
-package main;
+package com.example.main;
 
-import handlers.*;
+import com.example.handlers.*;
 
 /**
  * Used to generate chain of approval.

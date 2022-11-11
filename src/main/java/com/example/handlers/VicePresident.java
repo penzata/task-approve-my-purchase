@@ -1,7 +1,7 @@
-package handlers;
+package com.example.handlers;
 
-import common.MessageApproval;
-import common.Purchase;
+import com.example.common.MessageApproval;
+import com.example.common.Purchase;
 
 /**
  * //TODO - Implement approval implementation for VicePresident level
